@@ -6,9 +6,21 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    
+    "images:clean": "shx rm -rf src/images/optimized && shx mkdir -p src/images/optimized",
+    "images:webp": "sharp -i \"src/images/raw/*\" -o src/images/optimized --format webp",
+    "images:avif": "sharp -i \"src/images/raw/*\" -o src/images/optimized --format avif",
+    "images": "npm run images:clean && npm run images:webp && npm run images:avif",
+    "images:watch": "chokidar \"src/images/raw/**/*.{jpg,jpeg,png}\" -c \"npm run images\""
   },
   "devDependencies": {
+    "chokidar-cli": "^3.0.0",
+    "sharp-cli": "^5.2.0",
+    "shx": "^0.4.0",
     "vite": "^7.2.4"
   }
 }
+
+
+
