@@ -26,12 +26,12 @@ jobs:
         with:
           node-version: 20
           cache: npm
-
-      - name: Images
-        run: npm run images
           
       - name: Install
         run: npm ci
+
+      - name: Images
+        run: npm run images
 
       - name: Build
         run: npm run build
