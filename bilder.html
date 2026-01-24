@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bilder</title>
+</head>
+<body>
+    <header>
+      <nav>
+        <a href = "./">Startsida</a>
+        <a href = "./bilder.html">Bilder</a>
+        <a href = "./process.html">Process</a>
+      </nav>
+    </header>
+
+    <main>
+        <picture>
+            <source srcset="/src/images/optimized/image-01.avif" type="image/avif">
+            <source srcset="/src/images/optimized/image-01.webp" type="image/webp">
+            <img src="/src/images/raw/image-01.jpg" alt = "Banankaka">
+        </picture>
+
+        <picture>
+            <source srcset="/src/images/optimized/image-02.avif" type="image/avif">
+            <source srcset="/src/images/optimized/image-02.webp" type="image/webp">
+            <img src="/src/images/raw/image-02.jpg" alt = "Ägg med bönor">
+        </picture>
+
+        <picture>
+            <source srcset="/src/images/optimized/image-03.avif" type="image/avif">
+            <source srcset="/src/images/optimized/image-03.webp" type="image/webp">
+            <img src="/src/images/raw/image-03.jpg" alt = "Korv med bröd">
+        </picture>
+
+        <picture>
+            <source srcset="/src/images/optimized/image-04.avif" type="image/avif">
+            <source srcset="/src/images/optimized/image-04.webp" type="image/webp">
+            <img src="/src/images/raw/image-04.jpg" alt = "Avokado med nachos">
+        </picture>
+
+        <picture>
+            <source srcset="/src/images/optimized/image-05.avif" type="image/avif">
+            <source srcset="/src/images/optimized/image-05.webp" type="image/webp">
+            <img src="/src/images/raw/image-05.jpg" alt = "Churrasco">
+        </picture>
+    </main>
+    
+    <script type="module" src="/src/js/main.js"></script>
+</body>
+</html>

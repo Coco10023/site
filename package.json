@@ -7,7 +7,6 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    
     "images:clean": "shx rm -rf src/images/optimized && shx mkdir -p src/images/optimized",
     "images:webp": "sharp -i \"src/images/raw/*\" -o src/images/optimized --format webp",
     "images:avif": "sharp -i \"src/images/raw/*\" -o src/images/optimized --format avif",
