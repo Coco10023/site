@@ -13,6 +13,237 @@
         <a href = "./process.html">Process</a>
       </nav>
     </header>
+
+    <main>
+
+    <h1>Arbetsprocess för utveckling och publicering</h1>
+
+    <p>
+      Den här sidan beskriver hela arbetsprocessen för hur webbplatsen har utvecklats, automatiserats och publicerats.
+      Fokus har varit att skapa en tydlig struktur där så mycket som möjligt sker automatiskt med hjälp av Node.js-baserade verktyg,
+      samtidigt som projektet är enkelt att förstå och återskapa.
+    </p>
+
+    <section>
+      <h2>1. Versionshantering med Git och GitHub</h2>
+      <p>
+        Projektet versionshanteras med <strong>Git</strong> och lagras i ett publikt repository på GitHub.
+        Arbetet är uppdelat i två grenar (branches):
+      </p>
+
+      <ul>
+        <li><strong>development</strong> – används under själva utvecklingsarbetet</li>
+        <li><strong>main</strong> – innehåller den stabila version som publiceras</li>
+      </ul>
+
+      <p>
+        Allt arbete sker på development-branchen. När en fungerande version är färdig merge:as den till main.
+        Detta gör att halvfärdiga ändringar aldrig publiceras av misstag.
+      </p>
+
+      <p>
+        Regelbundna commits görs under arbetets gång, med tydliga och beskrivande commit-meddelanden som visar vad som har ändrats och varför.
+      </p>
+
+    </section>
+
+    <section>
+      <h2>2. Utvecklingsmiljö med Node.js, npm och Vite</h2>
+      <p>
+        Projektet använder <strong>Node.js</strong> och <strong>npm (Node Package Manager)</strong> för att hantera verktyg och automatiserade uppgifter.
+      </p>
+
+      <p>När repot klonas kan hela projektet återskapas genom att köra:</p>
+      <pre><code>npm install</code></pre>
+      <p>
+        Alla nödvändiga verktyg installeras då automatiskt via <code>package.json</code>.
+      </p>
+
+      <h3>Lokal utveckling</h3>
+      <p>Under utveckling används <strong>Vite</strong> som utvecklingsserver. Den startas med:</p>
+      <pre><code>npm run dev</code></pre>
+      <p>
+        Detta gör att webbplatsen körs via en lokal server i webbläsaren. Vite uppdaterar sidan automatiskt när filer sparas,
+        vilket gör utvecklingsarbetet snabbare och mer effektivt.
+      </p>
+    </section>
+
+    <section>
+      <h2>3. Projektstruktur och filhantering</h2>
+
+      <p>
+        Projektet är uppdelat i tydliga delar för att skilja mellan arbetsfiler och publiceringsfiler.
+      </p>
+
+      <h3>Arbetsfiler</h3>
+      <ul>
+        <li>HTML-filer (<code>index.html</code>, <code>bilder.html</code>, <code>process.html</code>) ligger i projektets rot</li>
+        <li>CSS-filer ligger i <code>src/css/</code></li>
+        <li>JavaScript-filer ligger i <code>src/js/</code></li>
+        <li>Bilder hanteras i en strukturerad mappstruktur</li>
+      </ul>
+
+      <h3>Publiceringsfiler</h3>
+      <p>När projektet byggs skapas en mapp som heter:</p>
+      <ul>
+        <li><code>dist/</code></li>
+      </ul>
+      <p>
+        Den innehåller den färdiga versionen av webbplatsen och är den enda mapp som publiceras.
+      </p>
+    </section>
+
+    <section>
+      <h2>4. HTML och navigation</h2>
+      <p>Webbplatsen består av tre HTML-sidor:</p>
+      <ul>
+        <li>Startsida</li>
+        <li>Bildsida</li>
+        <li>Process-sida</li>
+      </ul>
+      <p>
+        Alla HTML-filer ligger i projektets rot, vilket gör att Vite kan inkludera dem som separata sidor i byggprocessen
+        (så kallad <em>multi-page build</em>).
+      </p>
+      
+      <p>
+        Navigationen använder <strong>relativa länkar</strong> (<code>./</code>) för att säkerställa att länkarna fungerar både lokalt
+        och när webbplatsen publiceras via GitHub Pages.
+      </p>
+    </section>
+
+    <section>
+      <h2>5. CSS, JavaScript och interaktivitet</h2>
+      <p>
+        CSS används för layout, responsiv design och visuell presentation. Alla stilar är samlade i separata filer för bättre struktur.
+      </p>
+      <p>
+        JavaScript används för enklare funktionalitet, bland annat:
+      </p>
+      <ul>
+        <li>aktiv navigation, där aktuell sida markeras i menyn</li>
+      </ul>
+      <p>
+        Detta gör att användaren tydligt ser vilken sida som är aktiv.
+      </p>
+    </section>
+
+    <section>
+      <h2>6. Bildhantering och automatiserad optimering</h2>
+      <p>
+        Bilder är ofta den största delen av en webbplats i filstorlek. För att förbättra prestanda används automatiserad bildoptimering.
+      </p>
+
+      <h3>Struktur för bilder</h3>
+      <p>Bildhanteringen är uppdelad i två steg:</p>
+      <ul>
+        <li><strong>Originalbilder (raw)</strong> – utgångsmaterial i hög kvalitet</li>
+        <li><strong>Optimerade bilder (optimized)</strong> – genererade versioner i moderna format</li>
+      </ul>
+      <p>
+        Optimeringen görs med <strong>Sharp (via sharp-cli)</strong> och npm-scripts definierade i <code>package.json</code>.
+      </p>
+
+      <h3>Npm-scripts för bilder</h3>
+      <p>Följande scripts används:</p>
+      <ul>
+        <li>rensa gamla optimerade bilder</li>
+        <li>konvertera originalbilder till <strong>WebP</strong> och <strong>AVIF</strong></li>
+        <li>automatiskt köra optimering vid ändringar (watcher)</li>
+      </ul>
+
+      <p>Genom att köra:</p>
+      <pre><code>npm run images</code></pre>
+      <p>genereras alltid uppdaterade och optimerade bilder utan manuellt arbete.</p>
+    </section>
+
+    <section>
+      <h2>7. Användning av public-mappen</h2>
+      <p>
+        För att säkerställa att bilder fungerar vid publicering används <strong>Vites <code>public/</code>-mapp</strong>.
+      </p>
+      <p>Allt som placeras i <code>public/</code>:</p>
+      <ul>
+        <li>bearbetas inte av Vite</li>
+        <li>kopieras automatiskt rakt in i <code>dist/</code> vid build</li>
+        <li>behåller sin sökväg i den publicerade webbplatsen</li>
+      </ul>
+      <p>
+        Detta gör att bilder kan nås via enkla, relativa URL:er (t.ex. <code>./images/...</code>) både lokalt och på GitHub Pages.
+      </p>
+      <p>
+        Användningen av <code>public/</code>-mappen är särskilt lämplig för statiska resurser som bilder,
+        eftersom det garanterar att de inkluderas korrekt i publiceringsversionen.
+      </p>
+    </section>
+
+    <section>
+      <h2>8. Byggprocess (minifiering och publicering)</h2>
+      <p>När projektet är redo för publicering körs:</p>
+      <pre><code>npm run build</code></pre>
+      <p>Detta gör att:</p>
+      <ul>
+        <li>CSS och JavaScript minifieras automatiskt</li>
+        <li>alla sidor samlas i <code>dist/</code></li>
+        <li>projektet optimeras för produktion</li>
+      </ul>
+      <p>
+        Vite hanterar hela byggprocessen utan att man behöver göra något manuellt.
+      </p>
+    </section>
+
+    <section>
+      <h2>9. Automatisk publicering med GitHub Actions</h2>
+      <p>
+        För att publicering ska ske automatiskt används <strong>GitHub Actions</strong>.
+      </p>
+      <p>
+        En workflow-fil (<code>deploy.yml</code>) ligger i <code>.github/workflows/</code> och körs när kod pushas till <strong>main</strong>-branchen.
+      </p>
+      <p>Workflowen:</p>
+      <ol>
+        <li>hämtar projektet från GitHub</li>
+        <li>installerar dependencies</li>
+        <li>kör bildoptimering</li>
+        <li>bygger projektet</li>
+        <li>publicerar <code>dist/</code> till <strong>GitHub Pages</strong></li>
+      </ol>
+      <p>
+        Detta gör att hela publiceringsprocessen sker automatiskt utan manuella steg.
+      </p>
+    </section>
+
+    <section>
+      <h2>10. Publicerad webbplats</h2>
+      <p>Webbplatsen är publicerad via GitHub Pages och nås på:</p>
+      <p>
+        <strong><a href="https://coco10023.github.io/site/" target="_blank" rel="noopener noreferrer">https://coco10023.github.io/site/</a></strong>
+      </p>
+      <p>
+        Alla ändringar i <strong>main</strong> publiceras automatiskt på denna adress.
+      </p>
+    </section>
+
+    <section>
+      <h2>Sammanfattning</h2>
+      <p>Projektet använder:</p>
+      <ul>
+        <li>Git och branches för versionshantering</li>
+        <li>Node.js och npm för automatisering</li>
+        <li>Vite för utveckling och build</li>
+        <li>Sharp för bildoptimering</li>
+        <li>GitHub Actions för automatisk publicering</li>
+      </ul>
+      <p>
+        Denna arbetsprocess gör projektet lätt att återskapa, lätt att vidareutveckla, effektivt att publicera
+        och tydligt strukturerat även för framtida projekt.
+      </p>
+      <p>
+        Detta är i praktiken samma typ av flöde som ofta används i moderna frontend-projekt.
+      </p>
+    </section>
+
+    </main>
     
     <script type="module" src="/src/js/main.js"></script>
 </body>
