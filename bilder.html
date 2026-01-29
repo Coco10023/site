@@ -6,48 +6,67 @@
     <title>Bilder</title>
 </head>
 <body>
-    <header>
-      <nav>
-        <a href = "./">Startsida</a>
-        <a href = "./bilder.html">Bilder</a>
-        <a href = "./process.html">Process</a>
-      </nav>
+    <header class = "site-header">
+        <div class = "container">
+            <a class = "brand" href = "./">Moment 1</a>
+            <nav class = "nav">
+                <a href = "./">Startsida</a>
+                <a href = "./bilder.html">Bilder</a>
+                <a href = "./process.html">Process</a>
+            </nav>
+        </div>
     </header>
 
-    <main>
+    <main class = "container">
 
         <section class="gallery">
-            <picture>
-                <source srcset="./images/optimized/image-01.avif" type="image/avif"> 
-                <source srcset="./images/optimized/image-01.webp" type="image/webp">
-                <img src="./images/raw/image-01.jpg" alt = "Banankaka">
-            </picture>
+            <figure>
+                <picture>
+                    <source srcset="./images/optimized/image-01.avif" type="image/avif"> 
+                    <source srcset="./images/optimized/image-01.webp" type="image/webp">
+                    <img src="./images/raw/image-01.jpg" alt = "Banankaka">
+                </picture>
+            </figure>
 
-            <picture>
-                <source srcset="./images/optimized/image-02.avif" type="image/avif">
-                <source srcset="./images/optimized/image-02.webp" type="image/webp">
-                <img src="./images/raw/image-02.jpg" alt = "Ägg med bönor">
-            </picture>
+            <figure>
+                <picture>
+                    <source srcset="./images/optimized/image-02.avif" type="image/avif">
+                    <source srcset="./images/optimized/image-02.webp" type="image/webp">
+                    <img src="./images/raw/image-02.jpg" alt = "Ägg med bönor">
+                </picture>
+            </figure>
 
-            <picture>
-                <source srcset="./images/optimized/image-03.avif" type="image/avif">
-                <source srcset="./images/optimized/image-03.webp" type="image/webp">
-                <img src="./images/raw/image-03.jpg" alt = "Korv med bröd">
-            </picture>
+            <figure>
+                <picture>
+                    <source srcset="./images/optimized/image-03.avif" type="image/avif">
+                    <source srcset="./images/optimized/image-03.webp" type="image/webp">
+                    <img src="./images/raw/image-03.jpg" alt = "Korv med bröd">
+                </picture>
+            </figure>
 
-            <picture>
-                <source srcset="./images/optimized/image-04.avif" type="image/avif">
-                <source srcset="./images/optimized/image-04.webp" type="image/webp">
-                <img src="./images/raw/image-04.jpg" alt = "Avokado med nachos">
-            </picture>
+            <figure>
+                <picture>
+                    <source srcset="./images/optimized/image-04.avif" type="image/avif">
+                    <source srcset="./images/optimized/image-04.webp" type="image/webp">
+                    <img src="./images/raw/image-04.jpg" alt = "Avokado med nachos">
+                </picture>
+            </figure>
 
-            <picture>
-                <source srcset="./images/optimized/image-05.avif" type="image/avif">
-                <source srcset="./images/optimized/image-05.webp" type="image/webp">
-                <img src="./images/raw/image-05.jpg" alt = "Churrasco">
-            </picture>
+            <figure>
+                <picture>
+                    <source srcset="./images/optimized/image-05.avif" type="image/avif">
+                    <source srcset="./images/optimized/image-05.webp" type="image/webp">
+                    <img src="./images/raw/image-05.jpg" alt = "Churrasco">
+                </picture>
+            </figure>
         </section>
     </main>
+
+    <footer class = "site-footer">
+        <div class = "container">
+            <p>© 2026 Francisco De Leon • Publicerad via GitHub Pages</p>
+        </div>
+    </footer>
     
     <script type="module" src="/src/js/main.js"></script>
 </body>

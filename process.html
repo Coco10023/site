@@ -6,23 +6,27 @@
     <title>Process</title>
 </head>
 <body>
-    <header>
-      <nav>
-        <a href = "./">Startsida</a>
-        <a href = "./bilder.html">Bilder</a>
-        <a href = "./process.html">Process</a>
-      </nav>
+    <header class = "site-header">
+      <div class = "container">
+        <a class = "brand" href = "./">Moment 1</a>
+        <nav class = "nav">
+          <a href = "./">Startsida</a>
+          <a href = "./bilder.html">Bilder</a>
+          <a href = "./process.html">Process</a>
+        </nav>
+      </div>
     </header>
 
-    <main>
+    <main class = "container">
+        <h1>Arbetsprocess för utveckling och publicering</h1>
 
-    <h1>Arbetsprocess för utveckling och publicering</h1>
+        <p>
+        Den här sidan beskriver hela arbetsprocessen för hur webbplatsen har utvecklats, automatiserats och publicerats.
+        Fokus har varit att skapa en tydlig struktur där så mycket som möjligt sker automatiskt med hjälp av Node.js-baserade verktyg,
+        samtidigt som projektet är enkelt att förstå och återskapa.
+        </p>
 
-    <p>
-      Den här sidan beskriver hela arbetsprocessen för hur webbplatsen har utvecklats, automatiserats och publicerats.
-      Fokus har varit att skapa en tydlig struktur där så mycket som möjligt sker automatiskt med hjälp av Node.js-baserade verktyg,
-      samtidigt som projektet är enkelt att förstå och återskapa.
-    </p>
+    </section>
 
     <section>
       <h2>1. Versionshantering med Git och GitHub</h2>
@@ -244,6 +248,12 @@
     </section>
 
     </main>
+
+    <footer class = "site-footer">
+      <div class = "container">
+        <p>© 2026 Francisco De Leon • Publicerad via GitHub Pages</p>
+      </div>
+    </footer>
     
     <script type="module" src="/src/js/main.js"></script>
 </body>

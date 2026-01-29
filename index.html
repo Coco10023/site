@@ -6,25 +6,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>site</title>
   </head>
+
   <body>
-    <header>
-      <nav>
-      <nav>
-        <a href = "./">Startsida</a>
-        <a href = "./bilder.html">Bilder</a>
-        <a href = "./process.html">Process</a>
-      </nav>
+
+    <header class = "site-header">
+      <div class = "container">
+        <a class = "brand" href = "./">Moment 1</a>
+        <nav class = "nav">
+          <a href = "./">Startsida</a>
+          <a href = "./bilder.html">Bilder</a>
+          <a href = "./process.html">Process</a>
+        </nav>
+      </div>
     </header>
 
-  <main>
-  <h1>Moment 1 – Automatisering och publicering</h1>
+  <main class = "container">
+  <section class = "hero">
+      <div class = "card">
+        <h1>Moment 1 - Automatisering och publicering</h1>
 
-  <p>
-    I den här uppgiften har jag skapat en demowebbplats med HTML, CSS, JavaScript och bilder
-    samt byggt en automatiserad arbetsprocess med Node.js-baserade verktyg.
-    Syftet är att förenkla utvecklingen genom att automatisera uppgifter som bygg (build),
-    minifiering och bildoptimering, och att publicera webbplatsen automatiskt via GitHub.
-  </p>
+        <p>
+        I den här uppgiften har jag skapat en demowebbplats med HTML, CSS, JavaScript och bilder
+        samt byggt en automatiserad arbetsprocess med Node.js-baserade verktyg.
+        Syftet är att förenkla utvecklingen genom att automatisera uppgifter som bygg (build),
+        minifiering och bildoptimering, och att publicera webbplatsen automatiskt via GitHub.
+        </p>
+
+        <div class="badges">
+          <span class="badge">Vite build</span>
+          <span class="badge">Minifiering CSS/JS</span>
+          <span class="badge">WebP/AVIF</span>
+          <span class="badge">GitHub Pages</span>
+        </div>
+
+        <a class="btn" href="./process.html">Läs om arbetsprocessen</a>
+      </div>
+    </section>
 
   <h2>Det här innehåller projektet</h2>
   <ul>
@@ -43,9 +60,12 @@
   </p>
 </main>
 
-
-
     <div id="app"></div>
+    <footer class = "site-footer">
+      <div class = "container">
+        <p>© 2026 Francisco De Leon • Publicerad via GitHub Pages</p>
+      </div>
+    </footer>
 
     <script type="module" src="/src/js/main.js"></script>
   </body>
